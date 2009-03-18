@@ -25,8 +25,6 @@ module Merb::Generators
     template(:webrat_steps, :session_type => :webrat) do |t| 
       t.source = t.destination = "features/steps/webrat_steps.rb"
     end
-    
-    template(:cucumber, :after => :chmod) { |t| t.source = t.destination = "bin/cucumber" }
     template(:cucumber_yml) { |t| t.source = t.destination = "cucumber.yml" }
     
     def chmod(action)
