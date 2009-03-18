@@ -15,7 +15,7 @@ merb_cucumber, you'll need to do the following:
 
   default: --format pretty features
 
-If you experience any problems, please contact me (david) on github.
+If you experience any problems, please contact me (roman) on github.
 
 h2. Requirements
 
