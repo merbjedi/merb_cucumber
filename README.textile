@@ -27,7 +27,7 @@ h2. First Time
 
 Include the gem in your dependencies. In your dependencies.rb file include:
 
-dependency "roman-merb_cucumber", :require_as => nil
+  dependency "roman-merb_cucumber", :require_as => nil
 
 Inside your merb project root, run
   
@@ -47,7 +47,7 @@ To execute all the features run
 
 h2. Notes
 
-* If you are working with bundled Gems on your project, and having problems to make it through, check this post: http://blog.romanandreg.com/post/87698159/merb-cucumber-as-a-bundled-gem-on-merb-projects
+* If you are working with bundled Gems on your project, and having problems to make it through, check this "post":http://blog.romanandreg.com/post/87698159/merb-cucumber-as-a-bundled-gem-on-merb-projects
 * When you are implementing the steps of an scenario, please use the new request test helper, if you try to use the
   dispatch_to method, it won't work as expected.
 * Webrat methods other than 'visits' are now singular only.
