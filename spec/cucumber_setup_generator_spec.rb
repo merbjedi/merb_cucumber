@@ -11,10 +11,6 @@ describe "common files generator", :shared => true do
     @generator.should create('/tmp/cucumber.yml')
   end
 
-  it "should generate the bin/cucumber file" do
-    @generator.should create('/tmp/bin/cucumber')
-  end
-
   it "should generate the autotest/cucumber_merb_rspec.rb file" do
     @generator.should create('/tmp/autotest/cucumber_merb_rspec.rb')
   end
