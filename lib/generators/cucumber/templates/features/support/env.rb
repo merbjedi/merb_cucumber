@@ -8,7 +8,7 @@ if (local_gem_dir = File.join(File.dirname(__FILE__), '..', 'gems')) && $BUNDLE.
 end
 
 require "merb-core"
-require "spec"
+require 'spec/expectations'
 require "merb_cucumber/world/<%= session_type %>"
 <% if orm == :datamapper -%>
 require "merb_cucumber/helpers/datamapper"
