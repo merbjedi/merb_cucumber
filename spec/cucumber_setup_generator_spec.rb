@@ -7,8 +7,8 @@ describe "common files generator", :shared => true do
     @generator.should create('/tmp/features/support/env.rb')
   end
 
-  it "should generate the cucumber.yml file" do
-    @generator.should create('/tmp/cucumber.yml')
+  it "should generate the config/cucumber.yml file" do
+    @generator.should create('/tmp/config/cucumber.yml')
   end
 
   it "should generate the autotest/cucumber_merb_rspec.rb file" do
@@ -63,7 +63,7 @@ describe Merb::Generators::CucumberGenerator do
   describe "on simple session" do
 
     before(:each) do
-      @generator = Merb::Generators::CucumberGenerator.new('/tmp', {:orm => :datamapper})
+      @generator = Merb::Generators::CucumberGenerator.new('/tmp', {:orm => :datamapper, :session_type => :simple})
     end
 
     it_should_behave_like "common files generator"
@@ -87,7 +87,7 @@ describe Merb::Generators::CucumberGenerator do
   describe "on webrat session" do
 
     before(:each) do
-      @generator = Merb::Generators::CucumberGenerator.new('/tmp', {:orm => :datamapper, :session_type => :webrat})
+      @generator = Merb::Generators::CucumberGenerator.new('/tmp', {:orm => :datamapper})
     end
 
     it_should_behave_like "common files generator"

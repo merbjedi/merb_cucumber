@@ -10,7 +10,7 @@ merb_cucumber 0.5.0 now requires a version greater than cucumber 0.1.13, which i
 
   Cucumber::CLI.execute ARGV
 
-* Add a cucumber.yml to your Merb.root with the following contents:
+* Add a config/cucumber.yml to your Merb.root with the following contents:
 
   default: --format pretty features
 

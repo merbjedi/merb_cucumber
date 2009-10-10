@@ -9,9 +9,9 @@ module Merb::Generators
     def self.source_root
       File.join(File.dirname(__FILE__), 'cucumber', 'templates')
     end
-    
+
     option :orm, :desc => 'Object-Relation Mapper to use (one of: none, activerecord, datamapper, sequel)'
-    option :session_type, :default => :simple, :desc => 'Session type to use (one of: simple, webrat)'
+    option :session_type, :default => :webrat, :desc => 'Session type to use (one of: simple, webrat)'
     
     template(:env) { |t| t.source = t.destination = "features/support/env.rb" }
     template(:rake) { |t| t.source = t.destination = "lib/tasks/cucumber.rake" }
@@ -25,7 +25,7 @@ module Merb::Generators
     template(:webrat_steps, :session_type => :webrat) do |t| 
       t.source = t.destination = "features/steps/webrat_steps.rb"
     end
-    template(:cucumber_yml) { |t| t.source = t.destination = "cucumber.yml" }
+    template(:cucumber_yml) { |t| t.source = t.destination = "config/cucumber.yml" }
     
     def chmod(action)
       File.chmod(0755, action.destination)

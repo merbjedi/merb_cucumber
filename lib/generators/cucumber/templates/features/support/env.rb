@@ -1,12 +1,6 @@
 # Sets up the Merb environment for Cucumber (thanks to krzys and roman)
 require "rubygems"
 
-# Add the local gems dir if found within the app root; any dependencies loaded
-# hereafter will try to load from the local gems before loading system gems.
-if (local_gem_dir = File.join(File.dirname(__FILE__), '..', 'gems')) && $BUNDLE.nil?
-  $BUNDLE = true; Gem.clear_paths; Gem.path.unshift(local_gem_dir)
-end
-
 require "merb-core"
 require 'spec/expectations'
 require "merb_cucumber/world/<%= session_type %>"
@@ -16,6 +10,9 @@ require "merb_cucumber/helpers/datamapper"
 require "merb_cucumber/helpers/activerecord"
 <% end -%>
 
+# Recursively Load all steps defined within features/**/*_steps.rb
+Dir["#{Merb.root}" / "features" / "**" / "*_steps.rb"].each { |f| require f }
+
 # Uncomment if you want transactional fixtures
 # Merb::Test::World::Base.use_transactional_fixtures
 
@@ -24,4 +21,7 @@ require "merb_cucumber/helpers/activerecord"
 def Spec.run? ; true; end
 
 Merb.start_environment(:testing => true, :adapter => 'runner', :environment => ENV['MERB_ENV'] || 'test')
-  
+
+<% if orm == :datamapper -%>
+DataMapper.auto_migrate!
+<% end -%>
